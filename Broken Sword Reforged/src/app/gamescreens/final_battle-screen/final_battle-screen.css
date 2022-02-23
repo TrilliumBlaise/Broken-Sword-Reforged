@@ -1,0 +1,111 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display:flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    background: url('../../../assets/images/final_battle-screen-background.jpg');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    cursor: pointer;
+}
+
+.player {
+    position: absolute;
+    width: 300px;
+    height: 350px;
+    background: url('../../../assets/images/knight.png');
+    background-repeat: no-repeat;
+    background-size: 300px 350px;
+    bottom: 0px;
+    left: 50px;
+}
+
+.player-hp {
+    position: absolute;
+    bottom: 100px;
+    left: 350px;
+    font-size: 50px;
+    color: rgb(248, 248, 248);
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+.final-boss-hp {
+    position: absolute;
+    font-size: 50px;
+    color: rgb(248, 248, 248);
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    top: 375px;
+    right: 100px;
+}
+
+.inventory {
+    position: absolute;
+    top: 0px;
+    display: flex;
+    width: 100%;
+    height: 40%;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    background-color: whitesmoke;
+    border-bottom-width: 10px ridge whitesmoke;
+    z-index: 1;
+}
+
+.inventory-button {
+    background-color: rgba(211,211,211, 0.2);
+    background-image: url('../../../assets/images/arrow.png');
+    background-position: center;
+    background-size: 25px;
+    background-repeat: no-repeat;
+    width: 100px;
+    height: 50px; /* as the half of the width */
+    border: none;
+    border-bottom-left-radius: 100% 200%;
+    border-bottom-right-radius: 100% 200%;
+}
+
+.inventory-button:hover {
+    background-color: rgba(211,211,211, 0.5);
+}
+
+.inventory-button:active {
+    background-color: rgba(211,211,211, 0.8);
+}
+
+iframe {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border: none;
+}
+
+.battle-text {
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    height: 50%;
+    width: 35%;
+    font-size: 50px;
+    color: rgb(248, 248, 248);
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    text-align: center;
+}
+
+.fadeIn {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.fadeOut {
+    opacity: 0;
+    pointer-events: none;
+}
