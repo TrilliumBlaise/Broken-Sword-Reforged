@@ -21,14 +21,14 @@ body {
 
 h2 {
     position: relative;
-    font-size: 100px;
+    font-size: 6.25em;
     text-align: center;
     top: 10px;
 }
 
 h3 {
     position: relative;
-    font-size: 90px;
+    font-size: 5.625em;
     text-align: center;
     top: 10px;
 }
@@ -37,12 +37,12 @@ h3 {
     position: relative;
     align-items: center;
     top: 10px;
-    font-size: 50px;
+    font-size: 3.125em;
 }
 
 input {
     position: relative;
-    font-size: 75px;
+    font-size: 1em;
     background: none;
     color: rgb(248, 248, 248);
     text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
@@ -61,7 +61,7 @@ button {
     color: rgb(248, 248, 248);
     text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
     width: 325px;
-    font-size: 50px;
+    font-size: 3.125em;
     border: -2px -2px 1 #000, 2px -2px 1 #000, -2px 2px 1 #000, 2px 2px 1 #000;
     border-radius: 3%;
 }
