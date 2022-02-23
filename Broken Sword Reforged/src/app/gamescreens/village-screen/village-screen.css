@@ -1,0 +1,135 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+.main {
+    position: absolute;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    background-image: url('../../../assets/images/village-screen-background.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: rgb(248, 248, 248);
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    transition: filter .5s linear;
+    justify-content: center;
+    z-index: 0;
+}
+
+.warning {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    height: 75%;
+    width: 75%;
+    font-size: 75px;
+    text-align: center;
+    background-color: black;
+    color: #8A0707;
+    z-index: 1;
+    justify-content: center;
+    align-items: center;
+}
+
+.warning button {
+    position: static;
+}
+
+button {
+    position: absolute;
+    background: none;
+    border: none;
+    cursor: pointer;
+    width: 200px;
+    height: 200px;
+    font-size: 40px;
+    color: rgb(248, 248, 248);
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    text-align: center;
+}
+
+button:active {
+    color: rgb(197, 197, 197);
+}
+
+.evil-one {
+    right: 20%;
+    bottom: 30%;
+}
+
+.adventure {
+    right: 45%;
+    bottom: 0%;
+}
+
+.home {
+    right: 10px;
+    bottom: 20%;
+}
+
+.hospital{
+    right: 45%;
+    top: 40%;
+}
+
+.shop {
+    bottom: 15%;
+    left: 30%;
+}
+
+.popup {
+    position: absolute;
+    border: 10px ridge rgb(248, 248, 248);
+    width: 75%;
+    height: 90%;
+    overflow:hidden;
+    visibility: hidden;
+    
+}
+.current-screen {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+.popup iframe{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: none;
+    overflow: hidden;
+    z-index: 0;
+}
+.popup button {
+    z-index: 1;
+    width: 50px;
+    height: 50px;
+    top: 5px;
+    right: 5px;
+    position: absolute;
+    text-align: center;
+    background: black;
+    border-radius: 5px;
+}
+.popup button:hover {
+    background: red;
+}
+.popup button:active {
+    background: rgb(184, 0, 0);
+}
+
+.blur {
+    filter: blur(8px);
+}
