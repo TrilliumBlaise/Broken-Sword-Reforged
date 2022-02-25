@@ -4,7 +4,7 @@
     display: flex;
     height: 80%;
     width: 100%;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: flex-start;
 }
 .gold {
@@ -21,6 +21,7 @@
     border-radius: 5px;
     height: 55%;
     min-width: 150px;
+    min-height: 150px;
     cursor: pointer;
     justify-content: center;
     align-items: center;
