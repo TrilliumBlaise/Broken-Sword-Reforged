@@ -1,0 +1,95 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+  
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    background-image: url('../../../assets/images/home-screen-background.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: rgb(248, 248, 248);
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+h2 {
+    position: relative;
+    font-size: 100px;
+    text-align: center;
+    top: 10px;
+}
+
+.saved-players-list {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+    max-height: 75%;
+    width: 425px;
+    top: 10px;
+    overflow-y: scroll;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+.saved-players-list::-webkit-scrollbar {
+    display: none;
+}
+
+button {
+    background-color: rgb(27, 109, 24);
+    color: rgb(248, 248, 248);
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    font-size: 50px;
+    width: 215px;
+    margin-top: 25px;
+    margin-left: 25px;
+    border: -2px -2px 1 #000, 2px -2px 1 #000, -2px 2px 1 #000, 2px 2px 1 #000;
+    border-radius: 3%;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: rgb(19, 78, 17);
+}
+
+button:active {
+    background-color: rgb(44, 167, 39);
+}
+
+.buttons {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    top: 100px;
+    height: 100px;
+    width: 100%;
+}
+
+
+
+.player {
+    text-align: center;
+    background-color: rgb(27, 109, 24);
+    color: rgb(248, 248, 248);
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    width: 325px;
+    font-size: 50px;
+    margin-top: 25px;
+    border: -2px -2px 1 #000, 2px -2px 1 #000, -2px 2px 1 #000, 2px 2px 1 #000;
+    border-radius: 3%;
+    cursor: pointer;
+}
+.player:last-child{
+    margin-bottom: 25px;
+}
+
+
+
+
