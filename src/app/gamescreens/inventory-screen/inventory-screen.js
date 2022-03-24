@@ -168,11 +168,13 @@ document.querySelectorAll('.orbSlot').forEach(slot => {
 //Fills the UI slots with items from this.inventory
 document.addEventListener('DOMContentLoaded', () => {
     const goldAmount = document.querySelector('.gold');
+    const playerLevel = goldAmount.querySelector('div');
     const weaponSlots = document.querySelectorAll('.weapon');
     const crystalSlots = document.querySelectorAll('.crystalSlot');
     const orbSlots = document.querySelectorAll('.orbSlot');
     const slotsArray = [weaponSlots, crystalSlots, orbSlots];
     goldAmount.innerHTML = `Gold: ${player.gold}`;
+    playerLevel.innerHTML = `${player.name}'s Level: ${player.level + 1}`
     for (let i = 0; i < player.inventory.length; i++) {
         let inventory = player.inventory[i];
         for (let j = 0; j < inventory.length; j++) {
