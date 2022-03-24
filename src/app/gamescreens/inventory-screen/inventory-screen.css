@@ -71,6 +71,8 @@
 
 .equip-column .item {
     min-height: 150px;
+}
+
 .item span {
     display: none;
 }
