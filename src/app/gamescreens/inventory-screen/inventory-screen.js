@@ -11,13 +11,13 @@ document.querySelectorAll('.inventory-slot').forEach(slot => {
     for (let i = 1; i < 10; i++) {
         if (slot.id === `crystal-${i}`) {
             slot.addEventListener('dblclick', () => {
-                player = useItemFromInventory(player.inventory[1][i - 1]);
+                player = useItemFromInventory(player, player.inventory[1][i - 1]);
                 CurrentPlayerAPI.save(player);
             });
         }
         if (slot.id === `orb-${i}`) {
             slot.addEventListener('dblclick', () => {
-                player = useItemFromInventory(player.inventory[2][i - 1])
+                player = useItemFromInventory(player, player.inventory[2][i - 1])
                 CurrentPlayerAPI.save(player);
             });
         }
