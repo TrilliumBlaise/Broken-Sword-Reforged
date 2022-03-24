@@ -17,6 +17,7 @@
 }
 
 .equip-column {
+    align-self: center;
     border: 5px solid;
     border-radius: 5px;
     height: 55%;
@@ -58,6 +59,7 @@
 }
 .item {
     position: relative;
+    min-height: 75px;
     height: 100%;
     width: 100%;
     background-size: contain ;
@@ -67,6 +69,8 @@
     text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 
+.equip-column .item {
+    min-height: 150px;
 .item span {
     display: none;
 }
