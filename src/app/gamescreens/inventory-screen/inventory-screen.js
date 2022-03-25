@@ -22,6 +22,7 @@ document.querySelectorAll('.inventory-slot').forEach(slot => {
             });
         }
     }
+    fillInInventory();
 });
 //Allows for Drag and Drop of Weapon Slots
 let dragged;
@@ -167,7 +168,11 @@ document.querySelectorAll('.orbSlot').forEach(slot => {
 });
 //Fills the UI slots with items from this.inventory
 document.addEventListener('DOMContentLoaded', () => {
-    const goldAmount = document.querySelector('.gold-amount');
+    fillInInventory();
+})
+
+function fillInInventory() {
+ const goldAmount = document.querySelector('.gold-amount');
     const playerLevel = document.querySelector('.level');
     const weaponSlots = document.querySelectorAll('.weapon');
     const crystalSlots = document.querySelectorAll('.crystalSlot');
@@ -210,5 +215,5 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>`
             }
         }
-    }
-})
+    }   
+}
