@@ -60,8 +60,10 @@ export function useItemFromInventory(player, item) {
         return player;
     }
     if (item.crystalElement) {
+        console.log("Hello crystal inventory");
         const index = player.inventory[1].indexOf(item);
         const boolean = checkCrystalUsage(player.inventory[0][0], item);
+        console.log(`checkCrystalUsage boolean= ${boolean}`);
         if (!(boolean)) {
            alert("Your crystal shines momentarily and then the crystal shatters. Nothing seems to have changed...");
         }
@@ -160,6 +162,7 @@ export function checkCrystalUsage(weapon, crystal) {
         return true;
     }
     if (crystal.rarity === 'Legendary') {
+        console.log("Hello legendary");
         return true;
     }
     return false;
