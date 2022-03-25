@@ -25,7 +25,8 @@ document.querySelectorAll('.inventory-slot').forEach(slot => {
 });
 
 document.querySelector('.inventory').addEventListener('dblclick', () => {
-    document.reload(); 
+    unFillInventory();
+    fillInInventory();
 });
 
 //Allows for Drag and Drop of Weapon Slots
@@ -174,6 +175,13 @@ document.querySelectorAll('.orbSlot').forEach(slot => {
 document.addEventListener('DOMContentLoaded', () => {
     fillInInventory();
 })
+
+function unFillInventory() { 
+    const slots = document.querySelectorAll('.item');
+    slots.forEach(slot => {
+        slot.innherHTML = '';
+    });
+}
 
 function fillInInventory() {
     const goldAmount = document.querySelector('.gold-amount');
