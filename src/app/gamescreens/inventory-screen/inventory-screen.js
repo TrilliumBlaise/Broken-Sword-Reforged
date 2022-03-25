@@ -25,7 +25,7 @@ document.querySelectorAll('.inventory-slot').forEach(slot => {
 });
 
 document.querySelector('.inventory').addEventListener('dblclick', () => {
-    fillInInventory(); 
+    document.reload(); 
 });
 
 //Allows for Drag and Drop of Weapon Slots
