@@ -66,7 +66,7 @@ export function useItemFromInventory(player, item) {
            alert("Your crystal shines momentarily and then the crystal shatters. Nothing seems to have changed...");
         }
         if (boolean) {
-            Weapon.useCrystal(equippedWeapon, item);
+            Weapon.useCrystal(player.inventory[0][0], item);
         }
         if (player.inventory[1].length === 1) {
             document.querySelector(`#crystal-1`).innerHTML = ''
