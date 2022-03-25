@@ -61,7 +61,7 @@ export function useItemFromInventory(player, item) {
     }
     if (item.crystalElement) {
         const index = player.inventory[1].indexOf(item);
-        const boolean = checkCrystalUsage(equippedWeapon, item);
+        const boolean = checkCrystalUsage(player.inventory[0][0], item);
         if (!(boolean)) {
            alert("Your crystal shines momentarily and then the crystal shatters. Nothing seems to have changed...");
         }
