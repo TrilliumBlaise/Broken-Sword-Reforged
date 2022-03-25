@@ -12,7 +12,7 @@ const loadPlayers = () => {
         
         <div class= 'player ${i}'>
             <div class= 'thisPlayer' hidden>${data[i]}</div>
-            ${data[i].name}<br>Lvl:${data[i].level}
+            ${data[i].name}<br>Lvl:${data[i].level + 1}
         </div>`
     }
 }
