@@ -58,7 +58,7 @@ export default class Weapon {
                 weapon.weaponElement3 = crystal.crystalElement;
                 return;
             }
-            if (crystal.rarity === 'Legendary' && weapon.weaponElement4.element === 'none) {
+            if (crystal.rarity === 'Legendary' && weapon.weaponElement4.element === 'none') {
                 weapon.weaponElement4 = crystal.crystalElement;
                 return;
             }
