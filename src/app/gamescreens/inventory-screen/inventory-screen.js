@@ -172,7 +172,8 @@ document.addEventListener('DOMContentLoaded', () => {
 })
 
 function fillInInventory() {
- const goldAmount = document.querySelector('.gold-amount');
+    console.log('hello');
+    const goldAmount = document.querySelector('.gold-amount');
     const playerLevel = document.querySelector('.level');
     const weaponSlots = document.querySelectorAll('.weapon');
     const crystalSlots = document.querySelectorAll('.crystalSlot');
