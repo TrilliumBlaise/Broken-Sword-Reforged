@@ -12,17 +12,18 @@ document.querySelectorAll('.inventory-slot').forEach(slot => {
         if (slot.id === `crystal-${i}`) {
             slot.addEventListener('dblclick', () => {
                 player = useItemFromInventory(player, player.inventory[1][i - 1]);
+                fillInInventory();
                 CurrentPlayerAPI.save(player);
             });
         }
         if (slot.id === `orb-${i}`) {
             slot.addEventListener('dblclick', () => {
                 player = useItemFromInventory(player, player.inventory[2][i - 1])
+                fillInInventory();
                 CurrentPlayerAPI.save(player);
             });
         }
     }
-    fillInInventory();
 });
 //Allows for Drag and Drop of Weapon Slots
 let dragged;
