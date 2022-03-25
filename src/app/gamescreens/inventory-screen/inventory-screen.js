@@ -25,6 +25,7 @@ document.querySelectorAll('.inventory-slot').forEach(slot => {
 });
 
 document.querySelector('.inventory').addEventListener('change', () => {
+    console.log('hello')
     fillInInventory(); 
 });
 
@@ -176,7 +177,6 @@ document.addEventListener('DOMContentLoaded', () => {
 })
 
 function fillInInventory() {
-    console.log('hello');
     const goldAmount = document.querySelector('.gold-amount');
     const playerLevel = document.querySelector('.level');
     const weaponSlots = document.querySelectorAll('.weapon');
