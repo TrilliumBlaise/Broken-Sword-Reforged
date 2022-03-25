@@ -200,7 +200,7 @@ function fillInInventory() {
                     Element 2: ${item.weaponElement2.element}<br>
                     Element 3: ${item.weaponElement3.element}<br>
                     Element 4: ${item.weaponElement4.element}<br>
-                    Power: ${item.type.power} </span>
+                    Power: ${item.type.power + item.powerModifier} </span>
                     </div>`
                 }
             }
