@@ -24,8 +24,7 @@ document.querySelectorAll('.inventory-slot').forEach(slot => {
     }
 });
 
-document.querySelector('.inventory').addEventListener('change', () => {
-    console.log('hello')
+document.querySelector('.inventory').addEventListener('dblclick', () => {
     fillInInventory(); 
 });
 
