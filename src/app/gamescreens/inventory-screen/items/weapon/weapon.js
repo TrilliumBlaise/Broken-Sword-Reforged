@@ -44,7 +44,7 @@ export default class Weapon {
         if (typeof(weapon.name) !== 'string') {
             return;
         }
-        if (crystal instanceof Crystal) {
+        if (crystal.crystalElement) {
             if (crystal.rarity === 'Basic' && weapon.weaponElement1 === MyElement.EMPTY) {
                 weapon.weaponElement1 = crystal.crystalElement;
                 return;
