@@ -176,7 +176,8 @@ document.addEventListener('DOMContentLoaded', () => {
     fillInInventory();
 })
 
-function unFillInventory() { 
+function unFillInventory() {
+    console.log("hello");
     const slots = document.querySelectorAll('.inventory-slot');
     slots.forEach(slot => {
         slot.innerHTML = ' <div class="inventory-slot-dropzone"></div>';
