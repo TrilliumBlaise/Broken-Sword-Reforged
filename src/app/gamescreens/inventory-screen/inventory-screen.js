@@ -179,7 +179,7 @@ document.addEventListener('DOMContentLoaded', () => {
 function unFillInventory() { 
     const slots = document.querySelectorAll('.inventory-slot');
     slots.forEach(slot => {
-        slot.innerHTML = '';
+        slot.innerHTML = ' <div class="inventory-slot-dropzone"></div>';
     });
 }
 
