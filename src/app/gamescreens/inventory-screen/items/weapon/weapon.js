@@ -41,7 +41,6 @@ export default class Weapon {
     //Changes the element of this
     //@Params: crystal - the crystal that is used to enhance this
     static useCrystal(weapon,crystal) {
-        console.log(`crystal before use: ${crystal.crystalElement.element}`);
         if (typeof(weapon.name) !== 'string') {
             return;
         }
@@ -64,7 +63,6 @@ export default class Weapon {
             }
             weapon.powerModifier += 5;
         }
-        console.log(`Weapon after use: ${weapon.weaponElement4}`)
         return;
     }
 }
