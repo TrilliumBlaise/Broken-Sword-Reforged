@@ -177,11 +177,9 @@ document.addEventListener('DOMContentLoaded', () => {
 })
 
 function unFillInventory() {
-    console.log("hello");
-    const slots = document.querySelectorAll('.inventory-slot');
-    slots.forEach(slot => {
-        slot.innerHTML = ' <div class="inventory-slot-dropzone"></div>';
-    });
+    document.querySelectorAll('.inventory-slot').forEach(slot => {
+        console.log("hello slots")
+    })
 }
 
 function fillInInventory() {
