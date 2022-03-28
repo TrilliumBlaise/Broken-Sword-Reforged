@@ -45,7 +45,7 @@ document.querySelector('.yes').addEventListener('click', () => {
             break;
         }
         case 'quit': {
-            window.location.href = '../../../index.html'
+            window.location.reload();
             break;
         }
     }
