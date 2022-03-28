@@ -22,6 +22,7 @@ document.querySelector('.inventory-button').addEventListener('click', () => {
 
 //Allows the player to save and quit the game
 document.querySelector('.yes').addEventListener('click', () => {
+    console.log(crrentAction.innerHTML);
     switch (currentAction.innerHTML) {
         case 'save': {
             const savePlayer = CurrentPlayerAPI.read();
