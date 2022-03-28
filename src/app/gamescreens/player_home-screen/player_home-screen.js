@@ -25,7 +25,20 @@ document.querySelector('.yes').addEventListener('click', () => {
     switch (currentAction.innerHTML) {
         case 'save': {
             const savePlayer = CurrentPlayerAPI.read();
-            PlayerAPI.updatePlayer(savePlayer);
+            const players = PlayerAPI.getPlayers();
+            let foundPlayerFlag = false;
+            for (const player of players) {
+                if (player.name != savePlayer.name) {
+                    continue;
+                }
+                foundPlayerFlag = true;
+            }
+            if (!foundPlayerFlag) {
+                PlayerAPI.saveNewPlayer(savePlayer)
+            }
+            if (foundPlayerFlag) {
+                PlayerAPI.updatePlayer(savePlayer);
+            }
             textOutput.innerHTML = 'Your game has been saved.<br> Would you like to quit?'
             currentAction.innerHTML = 'quit'
             break;
