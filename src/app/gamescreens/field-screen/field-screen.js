@@ -6,7 +6,7 @@ import PlayerAPI from '../../player/PlayerAPI.js';
 import { addToInventory, damageDurabiliy } from '../inventory-screen/ItemAPI.js';
 import Weapon from '../inventory-screen/items/weapon/weapon.js';
 
-const delayInMilliseconds = 5000;
+const delayInMilliseconds = 3000;
 let player = null;
 let enemy = null;
 let count = 0;
