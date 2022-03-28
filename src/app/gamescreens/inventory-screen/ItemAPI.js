@@ -116,6 +116,7 @@ export function damageDurabiliy(player, damageToDurablity) {
         player = useItemFromInventory(player, player.inventory[0][0]);
         return [player,reward]
     }
+    return [player, null];
 }
 //Helper functions
 
