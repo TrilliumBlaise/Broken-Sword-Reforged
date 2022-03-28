@@ -109,6 +109,7 @@ document.querySelector('.continue-button').addEventListener('click', () => {
 });
 
 document.querySelector('.return-button').addEventListener('click', () => {
+    document.querySelector('.no-battle').classList.replace('fadeIn', 'fadeOut');
     document.querySelector('.text').innerHTML = 'Finding nothing else, you return to the village.'
     CurrentPlayerAPI.save(player);
     setTimeout(() => {
