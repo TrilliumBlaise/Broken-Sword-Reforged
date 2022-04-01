@@ -1,68 +1,62 @@
-import MyElement from '../../../../element/element.js';
-import Crystal from '../crystal/crystal.js';
-import WeaponType from './weapon_type.js'
+import { elements, isSameElement } from '../../../../element/element.js';
+import { weapons } from './weapon_type.js';
 
 export default class Weapon {
-    //Properties name must be unique
-    name;
-    type;
-    drop;
-    powerModifier;
-    numberCrystalsUsed
-    weaponElement1;
-    weaponElement2;
-    weaponElement3;
-    weaponElement4;
-
-    //Constrcutors
-    constructor(name, element) {
-        this.name = name;
-        this.type = Weapon.setWeaponType();
-        this.powerModifier = 0;
-        this.numberCrystalsUsed = [0,0,0]
-        this.drop = 'crystal';
-        this.weaponElement1 = element;
-        this.weaponElement2 = MyElement.EMPTY;
-        this.weaponElement3 = MyElement.EMPTY;
-        this.weaponElement4 = MyElement.EMPTY;
+  constructor(
+    name,
+    element1,
+    element2 = elements[4],
+    element3 = elements[4],
+    element4 = elements[4]
+  ) {
+    this.name = name;
+    this.type = weapons[Math.floor(Math.random() * 6)];
+    this.powerModifier = 0;
+    this.numberCrystalsUsed = [0, 0, 0];
+    this.drop = 'crystal';
+    this.weaponElements = [element1, element2, element3, element4];
+  }
+  //Methods
+  static getPower(weapon) {
+    return weapon.type.power + weapon.powerModifier;
+  }
+  //Changes the element of this
+  //@Params: crystal - the crystal that is used to enhance this
+  static enhanceWeapon(weapon, crystal) {
+    if (typeof weapon.name !== 'string') {
+      return;
     }
-    
-    //Methods
-    //returns a random weaponType
-    static setWeaponType() {
-        const random = Math.floor(Math.random() * 6);
-        return WeaponType.weaponTypeArray[random];
-    }
-    
-    //returns the actual power of a weapon
-    static getPower(weapon) {
-        return weapon.type.power + weapon.powerModifier;
-    }
-    //Changes the element of this
-    //@Params: crystal - the crystal that is used to enhance this
-    static useCrystal(weapon,crystal) {
-        if (typeof(weapon.name) !== 'string') {
-            return;
-        }
-        if (crystal.crystalElement) {
-            if (crystal.rarity === 'Basic' && weapon.weaponElement1 === MyElement.EMPTY) {
-                weapon.weaponElement1 = crystal.crystalElement;
-                return;
-            }
-            if (crystal.rarity === 'Rare' && weapon.weaponElement2 === MyElement.EMPTY) {
-                weapon.weaponElement2 = crystal.crystalElement;
-                return;
-            }
-            if (crystal.rarity === 'Epic' && weapon.weaponElement3 === MyElement.EMPTY) {
-                weapon.weaponElement3 = crystal.crystalElement;
-                return;
-            }
-            if (crystal.rarity === 'Legendary' && weapon.weaponElement4.element === 'None') {
-                weapon.weaponElement4 = crystal.crystalElement;
-                return;
-            }
-            weapon.powerModifier += 5;
-        }
+    if (crystal.crystalElement) {
+      if (
+        crystal.rarity === 'Basic' &&
+        isSameElement(weapon.weaponElements[0], elements[4])
+      ) {
+        weapon.weaponElements[0] = crystal.crystalElement;
         return;
+      }
+      if (
+        crystal.rarity === 'Rare' &&
+        isSameElement(weapon.weaponElements[1], elements[4])
+      ) {
+        weapon.weaponElements[1] = crystal.crystalElement;
+        return;
+      }
+      if (
+        crystal.rarity === 'Epic' &&
+        isSameElement(weapon.weaponElements[2], elements[4])
+      ) {
+        weapon.weaponElements[2] = crystal.crystalElement;
+        return;
+      }
+      if (
+        crystal.rarity === 'Legendary' &&
+        isSameElement(weapon.weaponElements[3], elements[4])
+      ) {
+        weapon.weaponElement4 = crystal.crystalElement;
+        return;
+      }
+      weapon.powerModifier += 5;
     }
+    return;
+  }
 }
