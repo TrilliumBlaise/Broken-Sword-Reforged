@@ -10,7 +10,7 @@ export default class Weapon {
     element4 = elements[4]
   ) {
     this.name = name;
-    this.type = weapons[Math.floor(Math.random() * 6)];
+    this.type = weapons[Math.floor(Math.random() * weapons.length)];
     this.powerModifier = 0;
     this.numberCrystalsUsed = [0, 0, 0];
     this.drop = 'crystal';
