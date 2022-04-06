@@ -60,15 +60,12 @@ function getRandomNumber(number) {
 //@Param count
 function setCreature(count) {
   const i = getRandomNumber(3);
-  if (count >= 0 && count < 2) return enemies[i];
-  if (count >= 2 && count < 4) return enemies[i + 1];
-  if (count >= 4 && count < 6) return enemies[i + 2];
-  if (count >= 6 && count < 8) return enemies[i + 3];
-  if (count >= 8 && count < 10) {
-    if (i < 2) return enemies[4];
-    return enemies[5];
-  }
-  if (count >= 10) return enemies[5];
+  const countEnemies = enemies.filter(enemy => {
+    if (enemy.count?.min <= count && count <= enemy.count?.max) return enemy;
+  });
+  if (countEnemies.length < 3) countEnemies.push(countEnemies[0]);
+  console.log(countEnemies);
+  return countEnemies[i];
 }
 //returns the name of this
 //@Param creature, element
