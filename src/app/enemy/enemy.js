@@ -68,7 +68,7 @@ function setCreature(count) {
   return countEnemies[i];
 }
 //returns the name of this
-//@Param creature, element
+//@Param count
 function setName(count) {
   creature = setCreature(count);
   return creature.name[getRandomNumber(creature.name.length)];
