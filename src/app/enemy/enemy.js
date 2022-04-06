@@ -4,7 +4,15 @@ import Player from '../player/player.js';
 
 let creature;
 export function createEnemy(player, count) {
-  if (!player) return enemies[enemies.length - 1];
+  if (!player) {
+      name: enemies[enemies.length - 1].name,
+      enemyElement: elements[4],
+      drop: undefined,
+      hp: enemies[enemies.length - 1].statsBelowLevel10[0],
+      power: enemies[enemies.length - 1].statsBelowLevel10[1],
+      speed: enemies[enemies.length - 1].statsBelowLevel10[2],
+      takeDamage,
+    };
   const enemy = {
     name: setName(count),
     enemyElement: elements[getRandomNumber(4)],
