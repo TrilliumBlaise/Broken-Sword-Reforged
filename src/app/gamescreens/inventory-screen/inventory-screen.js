@@ -1,8 +1,10 @@
 import CurrentPlayerAPI from '../../player/CurrentPlayerAPI.js';
+import Player from '../../player/player.js';
 import { getIndex } from './ItemAPI.js';
 import { useItemFromInventory } from './ItemAPI.js';
 
 let player = CurrentPlayerAPI.read();
+if (player.length === 0) player = Player.test();
 
 //Add eventListeners
 
@@ -209,3 +211,4 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 });
+
