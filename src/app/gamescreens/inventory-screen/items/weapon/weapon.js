@@ -29,28 +29,28 @@ export default class Weapon {
     if (crystal.crystalElement) {
       if (
         crystal.rarity === 'Basic' &&
-        isSameElement(weapon.weaponElements[0], elements[4])
+        isSameElement(weapon.weaponElements[0].element, elements[4])
       ) {
         weapon.weaponElements[0] = crystal.crystalElement;
         return;
       }
       if (
         crystal.rarity === 'Rare' &&
-        isSameElement(weapon.weaponElements[1], elements[4])
+        isSameElement(weapon.weaponElements[1].element, elements[4])
       ) {
         weapon.weaponElements[1] = crystal.crystalElement;
         return;
       }
       if (
         crystal.rarity === 'Epic' &&
-        isSameElement(weapon.weaponElements[2], elements[4])
+        isSameElement(weapon.weaponElements[2].element, elements[4])
       ) {
         weapon.weaponElements[2] = crystal.crystalElement;
         return;
       }
       if (
         crystal.rarity === 'Legendary' &&
-        isSameElement(weapon.weaponElements[3], elements[4])
+        isSameElement(weapon.weaponElements[3].element, elements[4])
       ) {
         weapon.weaponElement4 = crystal.crystalElement;
         return;
@@ -60,3 +60,4 @@ export default class Weapon {
     return;
   }
 }
+
