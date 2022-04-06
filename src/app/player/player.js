@@ -32,6 +32,36 @@ export default class Player {
 
     return [i, player];
   }
+
+  static test() {
+    return {
+      name: 'Bryan',
+      level: 0,
+      hp: 100,
+      maxHP: 100,
+      inventory: [
+        [
+          {
+            name: 'The Excalibur',
+            type: { type: 'Club', power: 15, speed: 0.9, durability: 150 },
+            powerModifier: 0,
+            numberCrystalsUsed: [0, 0, 0],
+            drop: 'crystal',
+            weaponElements: [
+              { element: 'None' },
+              { element: 'None' },
+              { element: 'None' },
+              { element: 'None' },
+            ],
+          },
+        ],
+        [],
+        [],
+      ],
+      gold: 0,
+      usedNames: [],
+    };
+  }
 }
 
 //returns true if number is 0-7 inclusive false if number is 8-9 inclusive
