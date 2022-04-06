@@ -71,7 +71,6 @@ function setCreature(count) {
 //@Param creature, element
 function setName(count) {
   creature = setCreature(count);
-  if (creature.name.length !== 4) return creature.name[0];
   return creature.name[getRandomNumber(creature.name.length)];
 }
 
