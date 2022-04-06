@@ -1,5 +1,5 @@
 import CurrentPlayerAPI from '../../player/CurrentPlayerAPI.js';
-import Enemy from '../../enemy/enemy.js';
+import { createEnemy } from '../../enemy/enemy.js';
 import Player from '../../player/player.js';
 import PlayerAPI from '../../player/PlayerAPI.js';
 import {
@@ -17,6 +17,7 @@ let count = 0;
 //Fills the background with clouds on load and checks for the initial fight
 document.addEventListener('DOMContentLoaded', () => {
   player = CurrentPlayerAPI.read();
+  if (player.length === 0) player = Player.test();
   setTimeout(function () {
     document.querySelector('.background').classList.remove('blur');
     document.querySelector('.text').innerHTML =
@@ -163,7 +164,7 @@ function spawn() {
       .classList.replace('fadeOut', 'fadeIn');
     document.querySelector('.battle-info').classList.remove('fadeOut');
     document.querySelector('.background').classList.add('blur');
-    enemy = Enemy.createEnemy(player, count);
+    enemy = createEnemy(player, count);
     console.log(enemy);
     if (enemy.enemyElement.element[0].match(/^[aeiou].*/i)) {
       document.querySelector(
@@ -243,4 +244,3 @@ function canRun() {
 function getRandomNumber(number) {
   return Math.floor(Math.random() * number);
 }
-
