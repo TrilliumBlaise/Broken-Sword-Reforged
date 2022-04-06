@@ -7,5 +7,5 @@ export const elements = [
 ];
 
 export function isSameElement(current, other) {
-  return current.element === other.element;
+  return current === other.element;
 }
