@@ -36,7 +36,6 @@ document.querySelector('.attack-button').addEventListener('click', () => {
   let battleDelay = 0; //variable used to delay finishing the attack to show that a new crystal has been earned.
   const playerDamage = enemy.takeDamage(player); //returns [damage, boolean]
   const weaponDrop = damageDurabiliy(player, playerDamage[0]); //return array [player, reward] or [player, null];
-  console.log(weaponDrop);
   player = weaponDrop[0];
   if (weaponDrop[1]) {
     battleDelay = 5000;
@@ -164,7 +163,8 @@ function spawn() {
       .classList.replace('fadeOut', 'fadeIn');
     document.querySelector('.battle-info').classList.remove('fadeOut');
     document.querySelector('.background').classList.add('blur');
-    enemy = createEnemy(player, count);
+    const ENEMY = createEnemy(player, count);
+    enemy = ENEMY[1];
     console.log(enemy);
     if (enemy.enemyElement.element[0].match(/^[aeiou].*/i)) {
       document.querySelector(
@@ -177,9 +177,7 @@ function spawn() {
       ).innerHTML = `You have encountered a ${enemy.enemyElement.element} ${enemy.name} prepare for battle!`;
     }
     setTimeout(function () {
-      document
-        .querySelector('.enemy')
-        .classList.add(`${enemy.name.toLowerCase()}`);
+      document.querySelector('.battle-info').appendChild(ENEMY[0]);
       document.querySelector(
         '.player-hp'
       ).innerHTML = `HP: ${player.hp}/${player.maxHP}`;
@@ -206,8 +204,8 @@ function dead() {
 //Function for giving out a reward for beating the enemy
 function reward() {
   document
-    .querySelector('.enemy')
-    .classList.remove(`${enemy.name.toLowerCase()}`);
+    .querySelector('.battle-info')
+    .removeChild(document.querySelector('.enemy'));
   const arr = addToInventory(player, enemy); //returns [player, reward]
   player = arr[0];
   document.querySelector('.battle-info').classList.add('fadeOut');
