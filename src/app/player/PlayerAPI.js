@@ -22,14 +22,7 @@ export default class PlayerAPI {
             throw new Error("Cannot be null")
         }
         const data = read();
-        const index = (() => {
-            for (let i = 0; i < data.length; i++) {
-                if (data[i].name !== player.name) {
-                    continue;
-                }
-                return data.indexOf(data[i]);
-            }
-        })(); 
+        const index = data.findIndex(d => d.name === player.name);
         data.splice(index, 1, player);
         save(data);
         return data;
@@ -37,14 +30,7 @@ export default class PlayerAPI {
 
     static deletePlayer(player) {
         const data = read();
-        const index = (() => {
-            for (let i = 0; i < data.length; i++) {
-                if (data[i].name !== player.name) {
-                    continue;
-                }
-                return data.indexOf(data[i]);
-            }
-        })();
+        const index = data.findIndex(d => d.name === player.name);
         data.splice(index, 1);
         save(data);
         return player;
