@@ -26,12 +26,8 @@ document.querySelector('.yes').addEventListener('click', () => {
     case 'save': {
       const savePlayer = CurrentPlayerAPI.read();
       const players = PlayerAPI.getPlayers();
-      let foundPlayerFlag = false;
-      for (const player of players) {
-        if (player.name != savePlayer.name) {
-          continue;
-        }
-        foundPlayerFlag = true;
+      const foundPlayerFlag = players.filter(player => {
+        if (player.name === savePlayer.name) return true;
       }
       if (!foundPlayerFlag) {
         PlayerAPI.saveNewPlayer(savePlayer);
