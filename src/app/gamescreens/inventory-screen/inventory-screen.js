@@ -172,11 +172,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const orbSlots = document.querySelectorAll('.orbSlot');
   const slotsArray = [weaponSlots, crystalSlots, orbSlots];
   goldAmount.innerHTML = `Gold: ${player.gold}`;
-  for (let i = 0; i < player.inventory.length; i++) {
-    let inventory = player.inventory[i];
-    for (let j = 0; j < inventory.length; j++) {
-      let slot = slotsArray[i][j];
-      let item = inventory[j];
+  player.inventory.forEach((inventory, i) => {
+    inventory.forEach((item, j) => {
+      const slot = slotsArray[i][j];
       if (i === 0) {
         if (typeof item.name === 'number') {
           slot.innerHTML += `<div class= 'item ${item.type.type.toLowerCase()}' draggable = 'true'>
@@ -203,12 +201,12 @@ document.addEventListener('DOMContentLoaded', () => {
         }</span>
                 </div>`;
       }
-      if (i === 2 && j < 5) {
+      if (i === 2) {
         slot.innerHTML += `<div class= 'item orb' draggable = 'true'>
                 <span>Use me to level up!</span>
                 </div>`;
       }
-    }
-  }
+    });
+  });
 });
 
