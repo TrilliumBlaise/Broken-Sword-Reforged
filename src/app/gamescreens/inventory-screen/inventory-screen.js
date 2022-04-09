@@ -25,9 +25,42 @@ document.querySelectorAll('.inventory-slot').forEach(slot => {
     }
   }
 });
+
 //Allows for Drag and Drop of Weapon Slots
+
 let dragged;
+let hovered;
+const DELAY = 1500;
+const span = document.querySelector('.item-info');
 document.querySelectorAll('.weapon').forEach(slot => {
+  slot.addEventListener('mouseenter', e => {
+    if (e.target.classList.contains('item')) return;
+    hovered = setTimeout(() => {
+      const item = slot.querySelector('.item');
+      if (typeof item?.dataset?.name === 'string') {
+        span.innerHTML = `
+        Name: ${item.dataset.name}<br>
+        Power: ${item.dataset.power}<br>
+        Element 1: ${item.dataset.element1}<br>
+        Element 2: ${item.dataset.element2}<br>
+        Element 3: ${item.dataset.element3}<br>
+        Element 4: ${item.dataset.element4}<br>`;
+      }
+      if (typeof item?.dataset?.name === 'number') {
+        span.innerHTML = `
+        Power: ${item.dataset.power}<br>
+        Durability: ${item.dataset.durability}<br>
+        Element: ${item.dataset.element}<br>
+        `;
+      }
+      span.classList.add('active');
+    }, DELAY);
+  });
+  slot.addEventListener('mouseleave', () => {
+    clearTimeout(hovered);
+    span.innerHTML = '';
+    span.classList.remove('active');
+  });
   slot.addEventListener('dragstart', e => {
     const index = getIndex(slot);
     dragged = [e.target, index, slot];
@@ -74,6 +107,24 @@ document.querySelectorAll('.weapon').forEach(slot => {
 });
 //Allows for Drag and Drop of Crystal Slots
 document.querySelectorAll('.crystalSlot').forEach(slot => {
+  slot.addEventListener('mouseenter', e => {
+    if (e.target.classList.contains('item')) return;
+    hovered = setTimeout(() => {
+      const item = slot.querySelector('.item');
+      if (item?.dataset?.rarity) {
+        span.innerHTML = `
+        Rarity: ${item.dataset.rarity}<br>
+        Element: ${item.dataset.element}
+        `;
+      }
+      span.classList.add('active');
+    }, DELAY);
+  });
+  slot.addEventListener('mouseleave', () => {
+    clearTimeout(hovered);
+    span.innerHTML = '';
+    span.classList.remove('active');
+  });
   slot.addEventListener('dragstart', e => {
     const index = getIndex(slot);
     dragged = [e.target, index, slot];
@@ -120,6 +171,19 @@ document.querySelectorAll('.crystalSlot').forEach(slot => {
 });
 //Allows for Drag and Drop of Orb Slots
 document.querySelectorAll('.orbSlot').forEach(slot => {
+  slot.addEventListener('mouseenter', e => {
+    if (e.target.classList.contains('item')) return;
+    hovered = setTimeout(() => {
+      const item = slot.querySelector('.item');
+      span.innerHTML = 'Use me to level up!';
+      span.classList.add('active');
+    }, DELAY);
+  });
+  slot.addEventListener('mouseleave', () => {
+    clearTimeout(hovered);
+    span.innerHTML = '';
+    span.classList.remove('active');
+  });
   slot.addEventListener('dragstart', e => {
     const index = getIndex(slot);
     dragged = [e.target, index, slot];
@@ -177,34 +241,33 @@ document.addEventListener('DOMContentLoaded', () => {
       const slot = slotsArray[i][j];
       if (i === 0) {
         if (typeof item.name === 'number') {
-          slot.innerHTML += `<div class= 'item ${item.type.type.toLowerCase()}' draggable = 'true'>
-                    <span> Element: ${item.weaponElements[0].element}<br>
-                    Power: ${item.type.power}<br>
-                    Durability: ${item.type.durability}</span>
-                    </div>`;
+          slot.innerHTML += `<div data-power= '${
+            item.type.power
+          } data-element= '${
+            item.weaponElements[0].element
+          }' data-durability= '${
+            item.type.durability
+          }' class= 'item ${item.type.type.toLowerCase()}' draggable = 'true'></div>`;
         }
         if (typeof item.name === 'string') {
-          slot.innerHTML += `<div  class= 'item ${item.type.type.toLowerCase()}' draggable = 'true'>
-                    <span>Weapon of Light: ${item.name}<br>
-                    Element 1: ${item.weaponElements[0].element}<br>
-                    Element 2: ${item.weaponElements[1].element}<br>
-                    Element 3: ${item.weaponElements[2].element}<br>
-                    Element 4: ${item.weaponElements[3].element}<br>
-                    Power: ${item.type.power} </span>
-                    </div>`;
+          slot.innerHTML += `<div 
+          data-name= '${item.name}' 
+          data-element1= '${item.weaponElements[0].element}' 
+          data-element2= '${item.weaponElements[1].element}'
+          data-element3= '${item.weaponElements[2].element}'
+          data-element4= '${item.weaponElements[3].element}' 
+          data-power= '${item.type.power}'  
+          class= 'item ${item.type.type.toLowerCase()}' 
+          draggable = 'true'></div>`;
         }
       }
       if (i === 1) {
-        slot.innerHTML += `<div class= 'item crystal ${item.crystalElement.element.toLowerCase()}' draggable = 'true'>
-                <span>Rarity: ${item.rarity}<br>Element: ${
+        slot.innerHTML += `<div data-rarity='${item.rarity}' data-element= '${
           item.crystalElement.element
-        }</span>
-                </div>`;
+        }' class= 'item crystal ${item.crystalElement.element.toLowerCase()}' draggable = 'true'></div>`;
       }
       if (i === 2) {
-        slot.innerHTML += `<div class= 'item orb' draggable = 'true'>
-                <span>Use me to level up!</span>
-                </div>`;
+        slot.innerHTML += `<div class= 'item orb' draggable = 'true'></div>`;
       }
     });
   });
