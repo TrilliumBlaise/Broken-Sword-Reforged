@@ -47,12 +47,19 @@ body {
   height: 95%;
 }
 
-.inventory-slot {
+.inventory-slot,
+.use {
   height: 70px;
   width: 100%;
   border: 5px outset grey;
 }
 
+.use {
+  font-size: 32px;
+  color: rgb(248, 248, 248);
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+  margin-top: 220px;
+}
 .item {
   position: relative;
   height: 100%;
