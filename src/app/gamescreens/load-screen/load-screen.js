@@ -5,7 +5,7 @@ let thisPlayerDiv = '';
 const loadedPlayers = [];
 
 const loadPlayers = () => {
-  const data = JSON.parse(localStorage.getItem('playersTest'));
+  const data = PlayerAPI.getPlayers();
   console.log(data);
   for (let i = 0; i < data.length; i++) {
     loadedPlayers.push(data[i]);
