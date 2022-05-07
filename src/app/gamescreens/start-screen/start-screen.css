@@ -1,0 +1,77 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: rgb(248, 248, 248);
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 100vh;
+  align-items: center;
+  background-image: url('../../../assets/images/start-screen-background.jpg');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-color: rgb(182, 194, 220);
+}
+
+h2 {
+  font-size: 50px;
+  text-align: center;
+}
+
+h3 {
+  font-size: 32px;
+  text-align: center;
+}
+
+.input {
+  font-size: 32px;
+}
+
+input {
+  font-size: 25px;
+}
+
+button {
+  font-size: 32px;
+  background-color: black;
+  border: 5px outset grey;
+  color: rgb(248, 248, 248);
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+@media only screen and (min-width: 451px) {
+  h3 {
+    font-size: 25px;
+  }
+}
+
+@media only screen and (min-width: 951px) {
+  h2 {
+    font-size: 70px;
+  }
+
+  h3 {
+    font-size: 60px;
+  }
+
+  .input {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    font-size: 70px;
+  }
+
+  input {
+    font-size: 70px;
+  }
+
+  button {
+    font-size: 70px;
+  }
+}

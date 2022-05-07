@@ -1,0 +1,261 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+body {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  background-color: skyblue;
+  color: rgb(248, 248, 248);
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+  justify-content: center;
+  align-items: center;
+}
+
+.text {
+  position: absolute;
+  text-align: center;
+  font-size: 40px;
+}
+
+.background {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+}
+
+.background-field {
+  position: absolute;
+  width: inherit;
+  height: inherit;
+  background-image: url('../../../assets/images/field-screen-background.png');
+  background-repeat: no-repeat;
+  background-position: bottom left;
+  background-size: 100% 50%;
+}
+
+.background-clouds {
+  position: absolute;
+  height: inherit;
+  width: inherit;
+  z-index: -2;
+}
+
+.background-cloud {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 60%;
+  height: 15%;
+  background-image: url('../../../assets/images/cloud.png');
+  background-size: 100% 100%;
+}
+
+.battle-screen {
+  position: absolute;
+  background-color: rgb(248, 248, 248);
+  border: 5px ridge black;
+  height: 100%;
+  width: 100%;
+}
+
+.battle-text {
+  position: absolute;
+  font-size: 20px;
+  border-bottom: 5px ridge black;
+  width: 100%;
+  height: 15%;
+}
+
+.battle-info {
+  position: absolute;
+  top: 15%;
+  height: 85%;
+  width: 100%;
+  font-size: 25px;
+}
+
+.player {
+  position: absolute;
+  bottom: 10%;
+  width: 100%;
+  height: 40%;
+  background-image: url('../../../assets/images/knight.png');
+  background-repeat: no-repeat;
+  background-position: bottom left 30px;
+  background-size: 60% 100%;
+}
+.enemy {
+  position: absolute;
+  width: 100%;
+  height: 40%;
+}
+
+.buttons {
+  position: absolute;
+  width: 100%;
+  height: 10%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  bottom: 0px;
+  border-top: 5px ridge black;
+}
+
+button {
+  background-color: black;
+  border: 5px outset grey;
+  color: rgb(248, 248, 248);
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.reward {
+  position: absolute;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  background-color: rgb(240, 238, 238);
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+  text-align: center;
+  z-index: 1;
+}
+
+.no-battle {
+  position: absolute;
+  bottom: 10%;
+}
+
+.inventory-screen {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: flex-start;
+  height: 100%;
+  width: 100%;
+  background-color: rgb(248, 248, 248);
+  border: 5px ridge black;
+  z-index: 1;
+}
+
+iframe {
+  border: none;
+  height: 100%;
+  width: 90%;
+}
+
+@media only screen and (min-width: 451px) {
+  .background-cloud {
+    width: 40%;
+    height: 25%;
+  }
+  .battle-screen,
+  .inventory-screen {
+    height: 90%;
+    width: 90%;
+  }
+
+  .inventory-screen {
+    position: absolute;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+  .inventory-screen button {
+    position: absolute;
+    z-index: 2;
+  }
+  iframe {
+    position: relative;
+    height: 100%;
+    width: 100%;
+  }
+
+  .battle-info {
+    top: 0px;
+    left: 0px;
+    height: 100%;
+  }
+  .player {
+    bottom: 0px;
+    height: 49%;
+    width: 50%;
+    background-position: bottom left 40px;
+  }
+  .enemy {
+    top: 0px;
+    width: 50%;
+    height: 50%;
+    right: 0px;
+  }
+  .buttons {
+    flex-direction: column;
+    width: 40%;
+    right: 0px;
+    height: 49%;
+    border-left: 5px ridge black;
+  }
+
+  .battle-text {
+    width: 50%;
+    height: 50%;
+    left: 0px;
+    border-right: 5px ridge black;
+  }
+}
+
+@media only screen and (min-width: 951px) {
+  .text {
+    width: 50%;
+    font-size: 75px;
+  }
+
+  .battle-screen {
+    border: 10px ridge black;
+  }
+  .battle-info {
+    font-size: 75px;
+  }
+  .battle-text {
+    font-size: 75px;
+    border-bottom: 10px ridge black;
+    border-right: 10px ridge black;
+  }
+
+  .buttons {
+    border-top: 10px ridge black;
+    border-left: 10px ridge black;
+  }
+
+  button {
+    font-size: 75px;
+  }
+  .player {
+    width: 50%;
+    background-position: center;
+  }
+
+  .reward {
+    font-size: 75px;
+  }
+  .inventory-screen {
+    height: 75%;
+    width: 75%;
+  }
+}
+/*Helper CSS Classes*/
+.blur {
+  filter: blur(8px);
+}
+
+.fadeOut {
+  opacity: 0;
+  pointer-events: none;
+}

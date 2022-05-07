@@ -1,0 +1,95 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: rgb(248, 248, 248);
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  background-image: url('../../../assets/images/home-screen-background.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+h2 {
+  font-size: 57px;
+  text-align: center;
+}
+
+.saved-players-list {
+  padding-top: 1%;
+  display: flex;
+  width: 70%;
+  height: 50%;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  border: 5px inset rgb(4, 122, 0);
+  overflow-y: scroll;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /*  Firefox */
+  gap: 2%;
+}
+
+.player {
+  position: relative;
+  text-align: center;
+  background-color: rgb(3, 102, 0);
+  border: 5px outset rgb(4, 122, 0);
+  width: 90%;
+  font-size: 30px;
+  gap: 10px;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 30%;
+  width: 100%;
+}
+
+button {
+  background-color: rgb(3, 102, 0);
+  font-size: 30px;
+  border: 5px outset rgb(4, 122, 0);
+}
+
+@media only screen and (min-width: 451px) {
+  .buttons {
+    flex-direction: row;
+  }
+
+  .player {
+    width: 50%;
+  }
+}
+
+@media only screen and (min-width: 951px) {
+  h2 {
+    font-size: 150px;
+  }
+  .saved-players-list {
+    width: 50%;
+  }
+  .player {
+    font-size: 70px;
+    width: 50%;
+  }
+
+  .saved-players-list:first-child {
+    margin-top: 100%;
+  }
+
+  button {
+    font-size: 70px;
+  }
+}

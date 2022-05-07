@@ -1,0 +1,154 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: rgb(248, 248, 248);
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+}
+
+.main {
+  width: 100%;
+  height: 100%;
+  background-image: url('../../../assets/images/village-screen-background.jpeg');
+  background-repeat: no-repeat;
+  background-size: 100% 60%;
+}
+button {
+  position: absolute;
+  height: 40px;
+  width: 100px;
+  border: 5px outset grey;
+  background: rgba(248, 248, 248, 0.2);
+}
+
+.warning {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  background-color: black;
+  border: 5px outset grey;
+  top: 25%;
+  width: 100%;
+  height: 50%;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  margin-top: 20px;
+}
+.buttons button {
+  position: static;
+}
+
+.text {
+  font-size: 32px;
+}
+
+.hospital {
+  top: 33%;
+  left: 40%;
+}
+
+.adventure {
+  top: 55%;
+  left: 33%;
+}
+
+.home {
+  right: 0%;
+  top: 43%;
+}
+
+.evil-one {
+  top: 25%;
+  right: 10%;
+}
+@media only screen and (max-width: 450px) {
+  .bottom-background {
+    position: absolute;
+    bottom: 0px;
+    height: 40%;
+    width: 100%;
+    background-image: url('../../../assets/images/bottom-background.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+  }
+}
+
+@media only screen and (min-width: 451px) {
+  .main {
+    background-size: 100% 100%;
+  }
+
+  .hospital {
+    top: 50%;
+    left: 45%;
+  }
+
+  .adventure {
+    top: 87%;
+    left: 38%;
+  }
+
+  .home {
+    top: 65%;
+    right: 6%;
+  }
+
+  .evil-one {
+    top: 52%;
+    right: 21%;
+  }
+}
+
+@media only screen and (min-width: 951px) {
+  * {
+    font-size: 40px;
+  }
+
+  body {
+    display: flex;
+    justify-content: center;
+  }
+  button {
+    width: 300px;
+    height: 100px;
+  }
+
+  .home {
+    top: 67%;
+    right: 4%;
+  }
+
+  .warning {
+    align-self: center;
+    width: 50%;
+    z-index: 1;
+  }
+
+  .text {
+    font-size: 40px;
+  }
+
+  .buttons {
+    margin-top: 10%;
+  }
+}
+/*Helper CSS classes*/
+.fadeOut {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.blur {
+  filter: blur(8px);
+}
