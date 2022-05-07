@@ -7,8 +7,9 @@ let player = CurrentPlayerAPI.read();
 if (player.length === 0) player = Player.test();
 
 //Add eventListeners
-
+const screenWidth = screen.availWidth;
 //Allows for usability of Crystals and LevelUp orbs
+let useItem;
 document.querySelectorAll('.inventory-slot').forEach(slot => {
   for (let i = 1; i < 10; i++) {
     if (slot.id === `crystal-${i}`) {
@@ -31,7 +32,6 @@ let dragged;
 let hovered;
 const DELAY = 1500;
 const span = document.querySelector('.item-info');
-const screenWidth = screen.availWidth;
 document.querySelectorAll('.weapon').forEach(slot => {
   if (screenWidth > 950) {
     addDragDropHoverWeaponSlots(slot);
@@ -66,6 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const crystalSlots = document.querySelectorAll('.crystalSlot');
   const orbSlots = document.querySelectorAll('.orbSlot');
   const slotsArray = [weaponSlots, crystalSlots, orbSlots];
+  if (screenWidth < 951) addUseButton();
   goldAmount.innerHTML = `Gold: ${player.gold}`;
   playerLevel.innerHTML = `Level: ${player.level}`;
   player.inventory.forEach((inventory, i) => {
@@ -100,6 +101,21 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
+
+function addUseButton() {
+  const button = document.createElement('button');
+  button.innerText = 'USE';
+  button.classList.add('use');
+  button.addEventListener('click', e => {
+    console.log(useItem);
+    if (useItem.classList.contains('crystal')) {
+      const index = getIndex(useItem.closest('.crystalSlot'));
+      player = useItemFromInventory(player, player.inventory[1][index]);
+      CurrentPlayerAPI.save(player);
+    }
+  });
+  document.querySelector('.level_up-row').appendChild(button);
+}
 
 function setSpan(slot) {
   const item = slot.querySelector('.item');
@@ -298,6 +314,7 @@ function addDragDropHoverCrystalSlots(slot) {
 function addClickSortCrystalSlots(slot) {
   slot.addEventListener('click', e => {
     setSpan(slot);
+    useItem = e.target;
     const currentColor = e.target.style.backgroundColor;
     if (!dragged) {
       const index = getIndex(slot);
@@ -434,3 +451,4 @@ function addClickSortOrbSlots(slot) {
     dragged = undefined;
   });
 }
+
