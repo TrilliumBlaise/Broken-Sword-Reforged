@@ -58,12 +58,12 @@ export function useItemFromInventory(player, item) {
   }
   if (item.crystalElement) {
     const index = player.inventory[1].indexOf(item);
-    const boolean = checkCrystalUsage(equippedWeapon, item);
+    const boolean = checkCrystalUsage(getPrimeWeapon(player), item);
     if (!boolean) {
       alert('Your crystal shines momentarily and then the crystal shatters. Nothing seems to have changed...');
     }
     if (boolean) {
-      Weapon.enhanceWeapon(equippedWeapon, item);
+      Weapon.enhanceWeapon(getPrimeWeapon(player), item);
     }
     if (player.inventory[1].length === 1) {
       document.querySelector(`#crystal-1`).innerHTML = '';
@@ -73,7 +73,7 @@ export function useItemFromInventory(player, item) {
       const crystal = player.inventory[1][i];
       document.querySelector(
         `#crystal-${i + 1}`
-      ).innerHTML = `<div class= 'item crystal ${crystal.element.element.toLowerCase()}' draggable = 'true'>${crystal.rarity}</div>`;
+      ).innerHTML = `<div class= 'item crystal ${crystal.crystalElement.element.toLowerCase()}' draggable = 'true'>${crystal.rarity}</div>`;
       document.querySelector(`#crystal-${i + 2}`).innerHTML = '';
     }
     return player;
@@ -98,6 +98,12 @@ export function useItemFromInventory(player, item) {
   }
 }
 
+function getPrimeWeapon(player) {
+  const primeWeapon = player.inventory[0].find(weapon => {
+    if (typeof weapon.name === 'string') return weapon;
+  });
+  return primeWeapon;
+}
 //Function for damaging a weapon's durablity
 //@Param: player
 //@Param: damageToDurability - the damage being done to the weapon
@@ -183,3 +189,4 @@ function randomName(usedNames) {
   usedNames.push(ran);
   return ran;
 }
+
