@@ -33,6 +33,7 @@ document.querySelector('.attack-button').addEventListener('click', () => {
   const playerDamage = enemy.takeDamage(player); //returns [damage, boolean]
   const weaponDrop = damageDurabiliy(player, playerDamage[0]); //return array [player, reward] or [player, null];
   player = weaponDrop[0];
+  CurrentPlayerAPI.save(player);
   if (weaponDrop[1]) {
     battleDelay = 5000;
     document.querySelector('.battle-text').innerHTML = `Your weapon has broken.<br>As the dust settles you find ${weaponDrop[1]}`;
