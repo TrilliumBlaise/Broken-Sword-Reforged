@@ -35,7 +35,7 @@ document.querySelector('.yes').addEventListener('click', () => {
     currentAction.current = 'quit';
     return;
   }
-  window.reload();
+  window.lcation.reload();
 });
 
 //Allows the player to not save and not quit the game
