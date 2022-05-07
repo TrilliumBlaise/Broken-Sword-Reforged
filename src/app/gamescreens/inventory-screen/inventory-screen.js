@@ -3,8 +3,7 @@ import Player from '../../player/player.js';
 import { getIndex } from './ItemAPI.js';
 import { useItemFromInventory } from './ItemAPI.js';
 
-let player = CurrentPlayerAPI.read();
-if (player.length === 0) player = Player.test();
+let player;
 
 //Add eventListeners
 const screenWidth = screen.availWidth;
@@ -60,12 +59,19 @@ document.querySelectorAll('.orbSlot').forEach(slot => {
 });
 //Fills the UI slots with items from this.inventory
 document.addEventListener('DOMContentLoaded', () => {
+  fillInventory();
+});
+
+function fillInventory() {
+  player = CurrentPlayerAPI.read();
+  if (player.length === 0) player = Player.test();
   const goldAmount = document.querySelector('.gold-amount');
   const playerLevel = document.querySelector('.level');
   const weaponSlots = document.querySelectorAll('.weapon');
   const crystalSlots = document.querySelectorAll('.crystalSlot');
   const orbSlots = document.querySelectorAll('.orbSlot');
   const slotsArray = [weaponSlots, crystalSlots, orbSlots];
+  clearInventory(slotsArray);
   if (screenWidth < 951) addUseButton();
   goldAmount.innerHTML = `Gold: ${player.gold}`;
   playerLevel.innerHTML = `Level: ${player.level}`;
@@ -74,9 +80,9 @@ document.addEventListener('DOMContentLoaded', () => {
       const slot = slotsArray[i][j];
       if (i === 0) {
         if (typeof item.name === 'number') {
-          slot.innerHTML += `<div data-power= '${item.type.power}' data-element= '${item.weaponElements[0].element}' data-durability= '${
-            item.type.durability
-          }' class= 'item ${item.type.type.toLowerCase()}' draggable = 'true'></div>`;
+          slot.innerHTML += `<div data-power= '${item.type.power + item.powerModifier}' data-element= '${
+            item.weaponElements[0].element
+          }' data-durability= '${item.type.durability}' class= 'item ${item.type.type.toLowerCase()}' draggable = 'true'></div>`;
         }
         if (typeof item.name === 'string') {
           slot.innerHTML += `<div 
@@ -85,7 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
           data-element2= '${item.weaponElements[1].element}'
           data-element3= '${item.weaponElements[2].element}'
           data-element4= '${item.weaponElements[3].element}' 
-          data-power= '${item.type.power}'  
+          data-power= '${item.type.power + item.powerModifier}'  
           class= 'item ${item.type.type.toLowerCase()}' 
           draggable = 'true'></div>`;
         }
@@ -93,15 +99,22 @@ document.addEventListener('DOMContentLoaded', () => {
       if (i === 1) {
         slot.innerHTML += `<div data-rarity='${item.rarity}' data-element= '${
           item.crystalElement.element
-        }' class= 'item crystal ${item.crystalElement.element.toLowerCase()}' draggable = 'true'></div>`;
+        }' class= 'item crystal ${item.crystalElement.element.toLowerCase()}' draggable = 'true'>${item.rarity}</div>`;
       }
       if (i === 2) {
         slot.innerHTML += `<div class= 'item orb' draggable = 'true'></div>`;
       }
     });
   });
-});
+}
 
+function clearInventory(slots) {
+  slots.forEach(row => {
+    row.forEach(slot => {
+      slot.innerHTML = '';
+    });
+  });
+}
 function addUseButton() {
   const button = document.createElement('button');
   button.innerText = 'USE';
@@ -112,8 +125,16 @@ function addUseButton() {
       const index = getIndex(useItem.closest('.crystalSlot'));
       player = useItemFromInventory(player, player.inventory[1][index]);
       CurrentPlayerAPI.save(player);
+      fillInventory();
+    }
+    if (useItem.classList.contains('orb')) {
+      const index = getIndex(useItem.closest('.orbSlot'));
+      player = useItemFromInventory(player, player.inventory[2][index]);
+      CurrentPlayerAPI.save(player);
+      fillInventory();
     }
   });
+  document.querySelector('.level_up-row').removeChild(document.querySelector('.use'));
   document.querySelector('.level_up-row').appendChild(button);
 }
 
@@ -414,6 +435,7 @@ function addDragDropHoverOrbSlots(slot) {
 function addClickSortOrbSlots(slot) {
   slot.addEventListener('click', e => {
     setSpan(slot);
+    useItem = e.target;
     if (!dragged) {
       const index = getIndex(slot);
       dragged = [e.target, index, slot];
@@ -451,4 +473,3 @@ function addClickSortOrbSlots(slot) {
     dragged = undefined;
   });
 }
-
