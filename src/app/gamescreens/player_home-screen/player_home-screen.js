@@ -35,7 +35,7 @@ document.querySelector('.yes').addEventListener('click', () => {
     currentAction.current = 'quit';
     return;
   }
-  window.location.href = '../home-screen/home-screen.html;
+  window.location.href = '../home-screen/home-screen.html';
 });
 
 //Allows the player to not save and not quit the game
