@@ -58,6 +58,14 @@ button {
   .message {
     margin-bottom: 20%;
   }
+  
+  .buttons {
+    position: relative;
+    bottom: 10%;
+    justify-content: center;
+    gap: 20px;
+    padding-bottom: 0px;
+  }
 }
 
 @media only screen and (min-width: 951px) {
