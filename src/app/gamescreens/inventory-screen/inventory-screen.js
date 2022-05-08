@@ -74,7 +74,7 @@ function fillInventory() {
   clearInventory(slotsArray);
   if (screenWidth < 951) addUseButton();
   goldAmount.innerHTML = `Gold: ${player.gold}`;
-  playerLevel.innerHTML = `Level: ${player.level}`;
+  playerLevel.innerHTML = `Level: ${player.level + 1}`;
   player.inventory.forEach((inventory, i) => {
     inventory.forEach((item, j) => {
       const slot = slotsArray[i][j];
