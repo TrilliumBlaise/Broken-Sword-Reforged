@@ -116,6 +116,7 @@ body {
     width: 70px;
   }
   .player-info {
+    position: absolute;
     justify-content: flex-start;
     bottom: 28;
     right: -80;
