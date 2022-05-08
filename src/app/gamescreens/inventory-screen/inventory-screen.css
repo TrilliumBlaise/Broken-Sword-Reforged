@@ -118,8 +118,8 @@ body {
   .player-info {
     position: absolute;
     justify-content: flex-start;
-    bottom: 28;
-    right: -80;
+    bottom: 28px;
+    right: -80px;
     font-size: 22px;
     width: 40%;
   }
