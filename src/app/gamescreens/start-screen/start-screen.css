@@ -48,8 +48,14 @@ button {
 }
 
 @media only screen and (min-width: 451px) {
+  body {
+    gap: 5px;
+  }
+  h2 {
+    font-size: 40px;
+  }
   h3 {
-    font-size: 25px;
+    font-size: 24px;
   }
 }
 
