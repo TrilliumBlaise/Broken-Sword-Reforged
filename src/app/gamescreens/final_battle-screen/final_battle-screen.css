@@ -7,9 +7,6 @@
 }
 
 body {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
   height: 100vh;
   width: 100vw;
   font-size: 20px;
@@ -17,7 +14,7 @@ body {
 
 .battle-screen {
   position: absolute;
-  height: 95%;
+  height: 100%;
   width: 100%;
   background-image: url('../../../assets/images/final_battle-screen-background.jpg');
   background-size: 100% 100%;
