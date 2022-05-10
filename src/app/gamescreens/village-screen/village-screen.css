@@ -108,6 +108,10 @@ button {
     top: 52%;
     right: 21%;
   }
+  
+  .warning {
+    height: 65%;
+  }
 }
 
 @media only screen and (min-width: 951px) {
