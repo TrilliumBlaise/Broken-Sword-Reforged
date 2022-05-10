@@ -49,6 +49,7 @@ button {
 
 @media only screen and (min-width: 451px) {
   body {
+    padding-top: 3%;
     gap: 5px;
   }
   h2 {
