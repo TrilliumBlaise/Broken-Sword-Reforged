@@ -17,7 +17,7 @@ body {
 
 .battle-screen {
   position: absolute;
-  height: 95%;
+  height: 90%;
   width: 100%;
   background-image: url('../../../assets/images/final_battle-screen-background.jpg');
   background-size: 100% 100%;
