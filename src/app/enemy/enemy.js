@@ -4,38 +4,32 @@ import Player from '../player/player.js';
 
 let creature;
 export function createEnemy(player, count) {
-  if (!player)
-    return {
-      name: enemies[enemies.length - 1].name,
-      enemyElement: elements[4],
-      drop: undefined,
-      hp: enemies[enemies.length - 1].statsBelowLevel10[0],
-      maxHP: enemies[enemies.length - 1].statsBelowLevel10[0],
-      power: enemies[enemies.length - 1].statsBelowLevel10[1],
-      speed: enemies[enemies.length - 1].statsBelowLevel10[2],
-      takeDamage,
-    };
-  const sprite = setSprite(count);
-  const enemy = [
-    '',
-    {
-      name: sprite[1],
-      sprite: sprite[0],
-      enemyElement: elements[getRandomNumber(4)],
-      drop: setDrop(player, count),
-      hp: 0,
-      power: 0,
-      speed: 0,
-      takeDamage,
-    },
-  ];
-  const stats = setStats(player);
-  enemy[1].hp = stats[0];
-  enemy[1].maxHP = enemy[1].hp;
-  enemy[1].power = stats[1];
-  enemy[1].speed = stats[2];
-  enemy[0] = createElement(enemy[1]);
-  return enemy;
+  if (!player) {
+    createFinalBoss();
+  }
+
+  const enemy = {
+    enemyElement: elements[getRandomNumber(4)],
+    drop: setDrop(player, count),
+    takeDamage,
+  };
+  [enemy.sprite, enemy.name] = [...setSprite(count)];
+  [enemy.hp, enemy.power, enemy.speed] = [...setStats(player)];
+  enemy.maxHP = enemy.hp;
+  return [createHTMLElement(enemy), enemy];
+}
+
+function createFinalBoss() {
+  return {
+    name: enemies[enemies.length - 1].name,
+    enemyElement: elements[4],
+    drop: undefined,
+    hp: enemies[enemies.length - 1].statsBelowLevel10[0],
+    maxHP: enemies[enemies.length - 1].statsBelowLevel10[0],
+    power: enemies[enemies.length - 1].statsBelowLevel10[1],
+    speed: enemies[enemies.length - 1].statsBelowLevel10[2],
+    takeDamage,
+  };
 }
 
 function createElement(enemy) {
