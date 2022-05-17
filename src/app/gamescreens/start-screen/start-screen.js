@@ -21,7 +21,7 @@ weaponInput.addEventListener('keydown', e => {
 
 function initGame() {
   if (validatePlayer()) {
-    const player = new Player(playerInput.value, new Weapon(weaponInput.value, elements[0]));
+    const player = new Player(playerInput.value, new Weapon(weaponInput.value, elements[4]));
     CurrentPlayerAPI.save(player);
     window.location.href = '../village-screen/village-screen.html';
   }
